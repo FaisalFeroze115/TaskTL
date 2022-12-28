@@ -16,7 +16,7 @@ const HeaderTop = () => {
 
     return (
         <SafeAreaView>
-            <View style={[globalStyles.flexBox, globalStyles.paddingTop40]}>
+            <View style={[globalStyles.flexBox, globalStyles.paddingTop20]}>
                 <View>
                     <Text style={styles.headerTitle}>Good evening!</Text>
                     <Text style={styles.headerSubtitle}>Hardline Scott</Text>

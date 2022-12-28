@@ -58,7 +58,7 @@ const Institution = () => {
                 )}
             keyExtractor={item => item.id}
         /> */}
-        
+
         {
           institutionInfo.map(item => (
             <InstitutionCard key={item.id} name={item.name} rating={item.rating} views={item.views} area={item.area} description={item.description}/>
@@ -66,6 +66,8 @@ const Institution = () => {
         }
 
       </View>
+
+      <View style={{height: 200}}></View>
 
       
     </View>
