@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
-import { globalStyles } from '../../globalStyle'
 
 const TeacherCard = ({item, navigation }) => {
   const {img, name, subject, area} = item
@@ -10,20 +9,16 @@ const TeacherCard = ({item, navigation }) => {
   }
 
   return (
-    <TouchableOpacity onPress={viewTeacher}>
-
-    <View style={[styles.cardWrapper]}>
-      <View>
-            <Image style={styles.cardImage} source={{uri:img}}/>
-            
+    <TouchableOpacity activeOpacity={.7} onPress={viewTeacher}>
+      <View style={[styles.cardWrapper]}>
+          <View>
+              <Image style={styles.cardImage} source={{uri:img}}/>
+          </View>
+          <View>
+              <Text style={styles.cardName}>{name}</Text>
+              <Text style={styles.cardSubject}>{subject}</Text>
+          </View>
       </View>
-
-      <View>
-            <Text style={styles.cardName}>{name}</Text>
-            <Text style={styles.cardSubject}>{subject}</Text>
-      </View>
-    </View>
-
     </TouchableOpacity>
     
   )
@@ -47,6 +42,7 @@ const styles = StyleSheet.create({
     cardImage: {
         width: "100%",
         height: 110,
+        borderRadius: 10
     },
     cardName: {
         fontSize: 15,

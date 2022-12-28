@@ -1,8 +1,7 @@
 import { StyleSheet, Text, View, Image, SafeAreaView} from 'react-native'
-import React, {useState} from 'react'
+import React from 'react'
 import { globalStyles } from '../../globalStyle'
 import { useFonts } from 'expo-font';
-
 
 const HeaderTop = () => {
 
@@ -43,8 +42,7 @@ const styles = StyleSheet.create({
         fontFamily: "Exo-Medium",
     },
     profilePic: {
-        width: 80,
-        height: 80,
+        width: 70,
+        height: 70,
     },
-    
 })

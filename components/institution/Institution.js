@@ -7,7 +7,7 @@ import { Fontisto } from '@expo/vector-icons';
 import { useFonts } from 'expo-font';
 import InstitutionFilter from './InstitutionFilter'
 
-const Institution = () => {
+const Institution = ({navigation}) => {
 
   const [institutionInfo, setInstitutionInfo] = useState(institutionData)
   const [showInstitutionFilter, setShowInstitutionFilter] = useState(false)
@@ -15,7 +15,6 @@ const Institution = () => {
   const [fontsLoaded] = useFonts({
     'Exo-Medium': require('../../assets/fonts/Exo-Medium.ttf'),
   });
-
 
   const filterInstitutionData = (area) => {
     if(area === "All Area"){
@@ -38,14 +37,11 @@ const Institution = () => {
     setShowInstitutionFilter((prev)=> !prev)
   }
 
- 
-
   return (
     <View style={globalStyles.mainWrapperPadding}>
       
       <View style={globalStyles.flexBox}>
           <Text style={[globalStyles.heading1, {fontFamily: "Exo-Medium"}]}>Popular Institution</Text>
-          {/* <Image style={globalStyles.filterStyle} source={require('../../assets/images/filterDeactive.png')}/> */}
           <TouchableOpacity onPress={onFilterPressed} activeOpacity={.4}>
               <Fontisto style={globalStyles.filterStyle} name="filter" size={25} color={showInstitutionFilter? "#5667FD": "#636D77"} />
           </TouchableOpacity>
@@ -58,15 +54,13 @@ const Institution = () => {
       <View style={{paddingVertical: 30}}>
         {
           institutionInfo.map(item => (
-            <InstitutionCard key={item.id} name={item.name} rating={item.rating} views={item.views} area={item.area} description={item.description}/>
+            <InstitutionCard navigation={navigation} key={item.id} item={item} />
           ))
         }
-
       </View>
 
       <View style={{height: 200}}></View>
-
-      
+  
     </View>
   )
 }

@@ -7,7 +7,7 @@ const TeacherLanding = ({route, navigation}) => {
 
   return (
     <View style={styles.wrapper}>
-        <Image style={{width: 300, height: 300}} source={{uri:img}}/>
+        <Image style={{width: "100%", height: 300}} source={{uri:img}}/>
         <View style={styles.content}>
             <Text style={styles.textStyle}>Name: {name}</Text>
             <Text style={styles.textStyle}>Subject: {subject}</Text>

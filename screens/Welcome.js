@@ -9,11 +9,9 @@ const Welcome = ({navigation}) => {
 
   return (
     <SafeAreaView style={styles.wrapper}>
-
         <TouchableOpacity activeOpacity={.8} onPress={goToExplore}>
             <Image source={require('../assets/images/welcome.png')}/> 
         </TouchableOpacity>
-      
     </SafeAreaView>
   )
 }

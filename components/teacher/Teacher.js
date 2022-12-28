@@ -27,7 +27,6 @@ const Teacher = ({navigation}) => {
         setTeacherInfo(newTeacher)
     }else{
         let newTeacherArea = teacherData.filter(item => item.area == area && item.subject == subject)
-        //let newTeacherSubArea = newTeacherArea.filter(item => item.subject == subject)
         setTeacherInfo(newTeacherArea)
     }
   }
@@ -44,13 +43,8 @@ const Teacher = ({navigation}) => {
     setShowTeacherFilter((prev)=> !prev)
   }
 
-  
-
-
-
   return (
     <View>
-        
         <View style={globalStyles.mainWrapperPadding}>
             <View style={globalStyles.flexBox}>
                 <Text style={[globalStyles.heading1, {fontFamily: "Exo-Medium"}]}>Popular Teachers</Text>
@@ -81,8 +75,6 @@ const Teacher = ({navigation}) => {
     </View>
   )
 }
-
-//#F4F5F9
 
 export default Teacher
 

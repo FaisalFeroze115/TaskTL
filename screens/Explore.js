@@ -10,7 +10,7 @@ const Explore = ({navigation}) => {
       <Header />
       <ScrollView>
           <Teacher navigation={navigation}/>
-          <Institution />
+          <Institution navigation={navigation}/>
       </ScrollView>
     </View>
   )
