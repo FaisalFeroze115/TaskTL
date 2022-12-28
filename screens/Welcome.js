@@ -2,14 +2,9 @@ import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView, Image } from 'r
 import React from 'react'
 
 const Welcome = ({navigation}) => {
-
-    const goToExplore = () => {
-        navigation.navigate('Explore')
-    }
-
   return (
     <SafeAreaView style={styles.wrapper}>
-        <TouchableOpacity activeOpacity={.8} onPress={goToExplore}>
+        <TouchableOpacity activeOpacity={.6} onPress={()=>{navigation.navigate('Explore')}}>
             <Image source={require('../assets/images/welcome.png')}/> 
         </TouchableOpacity>
     </SafeAreaView>
