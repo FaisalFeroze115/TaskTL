@@ -27,7 +27,7 @@ export const globalStyles = StyleSheet.create({
     filterStyle: {
         width: 30,
         height: 25,
-        marginRight: 20,
+        marginRight: 13,
         marginTop: 5
     },
     mainWrapperPadding:{

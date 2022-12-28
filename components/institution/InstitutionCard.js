@@ -1,27 +1,29 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import StarRating from '../starRating/StarRating'
 
-const InstitutionCard = ({name,rating,views,area,description}) => {
+const InstitutionCard = ({item,navigation}) => {
+  const {name,rating,views,area,description,img} = item;  
+
+  const viewInstitution = () => {
+    navigation.navigate('InstitutionLanding', {institution: item})
+  }
+
   return (
-    <View>
-
+    <TouchableOpacity activeOpacity={.7} onPress={viewInstitution}>
         <View style={styles.institutionCardWrapper}>
-
           <View style={{flex: 2.5, marginRight: 10}}>
-            <Image style={{width: '100%', height: 150}} source={require('../../assets/images/institution1.png')}/> 
+            <Image style={{width: '100%', height: 150}} source={img}/> 
           </View>
 
           <View style={{flex: 3,}}>
             <Text style={styles.institutionName}>{name}</Text>
-            <StarRating ratings={rating} views={views}/>
+            <StarRating ratings={rating} views={views} imgWidth={12} imgHeight={12} textFont={12}/>
             <Text style={styles.institutionArea}>{area}</Text>
             <Text style={styles.institutionDescription}>{description}</Text>
           </View>
-
         </View>
-
-    </View>
+    </TouchableOpacity>
     
   )
 }
@@ -54,5 +56,5 @@ const styles = StyleSheet.create({
   institutionDescription:{
     fontSize: 12,
     lineHeight: 18
-  },
+  }
 })

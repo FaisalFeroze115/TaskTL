@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native'
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { globalStyles } from '../../globalStyle'
 import TeacherCard from './TeacherCard'
 import { teacherData } from '../../data/teacherData'
@@ -7,7 +7,7 @@ import { Fontisto } from '@expo/vector-icons';
 import { useFonts } from 'expo-font';
 import TeacherFilter from './TeacherFilter';
 
-const Teacher = () => {
+const Teacher = ({navigation}) => {
   
   const [teacherInfo, setTeacherInfo] = useState(teacherData)
   const [showTeacherFilter, setShowTeacherFilter] = useState(false)
@@ -15,14 +15,6 @@ const Teacher = () => {
   const [fontsLoaded] = useFonts({
       'Exo-Medium': require('../../assets/fonts/Exo-Medium.ttf'),
   });
-
-  if (!fontsLoaded) {
-      return null;
-  }
-
-  const onFilterPressed = ()=> {
-    setShowTeacherFilter((prev)=> !prev)
-  }
 
   const filterTeacherData = (area, subject) => {
     if(area === "All Area" && subject === "All Subject"){
@@ -35,14 +27,24 @@ const Teacher = () => {
         setTeacherInfo(newTeacher)
     }else{
         let newTeacherArea = teacherData.filter(item => item.area == area && item.subject == subject)
-        //let newTeacherSubArea = newTeacherArea.filter(item => item.subject == subject)
         setTeacherInfo(newTeacherArea)
     }
   }
 
+  useEffect(()=>{
+    filterTeacherData("All Area","All Subject")
+  },[showTeacherFilter])
+
+  if (!fontsLoaded) {
+      return null;
+  }
+
+  const onFilterPressed = ()=> {
+    setShowTeacherFilter((prev)=> !prev)
+  }
+
   return (
     <View>
-        
         <View style={globalStyles.mainWrapperPadding}>
             <View style={globalStyles.flexBox}>
                 <Text style={[globalStyles.heading1, {fontFamily: "Exo-Medium"}]}>Popular Teachers</Text>
@@ -59,22 +61,24 @@ const Teacher = () => {
         </View>
 
         <View style={styles.sliderWrapper}>
-            <FlatList
-                style={styles.flatListStyle}
-                showsHorizontalScrollIndicator={false}
-                horizontal={true}
-                data={teacherInfo}
-                renderItem={ ({ item }) => (
-                    <TeacherCard img={item.img} name={item.name} subject={item.subject}/>
-                  )}
-                keyExtractor={item => item.id}
-            />
+            {
+            teacherInfo.length > 0 ? 
+                <FlatList
+                    style={styles.flatListStyle}
+                    showsHorizontalScrollIndicator={false}
+                    horizontal={true}
+                    data={teacherInfo}
+                    renderItem={ ({ item }) => (
+                        <TeacherCard navigation={navigation} item={item}/>
+                    )}
+                    keyExtractor={item => item.id}
+                /> : <Text style={{padding: 30, fontSize: 25, color: '#EE4B2B'}}>No Data Available</Text>
+            }
+            
         </View>
     </View>
   )
 }
-
-//#F4F5F9
 
 export default Teacher
 

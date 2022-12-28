@@ -5,7 +5,8 @@ export const institutionData = [
         rating: 5,
         views: 413,
         area: "Island",
-        description: "Studying how CBD awareness and availability as it related to pain management alternatives."
+        description: "Studying how CBD awareness and availability as it related to pain management alternatives.",
+        img: require("../assets/images/institution1.png"),
     },
     {
         id: 2,
@@ -13,7 +14,8 @@ export const institutionData = [
         rating: 4,
         views: 354,
         area: "Province",
-        description:"Montana Higher Educational Institute. Gampaha montana.gampaha@gmail.com"
+        description:"Montana Higher Educational Institute. Gampaha montana.gampaha@gmail.com",
+        img: require("../assets/images/institution2.png"),
     },
     {
         id: 3,
@@ -21,7 +23,8 @@ export const institutionData = [
         rating: 3,
         views: 743,
         area: "Districts",
-        description:"This is a private higher education center which conducting classes for GCE AL Students."
+        description:"This is a private higher education center which conducting classes for GCE AL Students.",
+        img: require("../assets/images/institution3.png"),
     },
 
     {
@@ -30,7 +33,8 @@ export const institutionData = [
         rating: 4,
         views: 1021,
         area: "Districts",
-        description:"This is a Public University education center which conducting classes for GCE AL Students."
+        description:"This is a Public University education center which conducting classes for GCE AL Students.",
+        img: require("../assets/images/institution2.png"),
     },
 
     {
@@ -39,7 +43,8 @@ export const institutionData = [
         rating: 5,
         views: 788,
         area: "Province",
-        description:"This is a Public University education center which conducting classes for GCE AL Students."
+        description:"This is a Public University education center which conducting classes for GCE AL Students.",
+        img: require("../assets/images/institution3.png"),
     },
 
     {
@@ -48,6 +53,7 @@ export const institutionData = [
         rating: 2,
         views: 121,
         area: "Island",
-        description:"This is a Public University education center which conducting classes for GCE AL Students."
+        description:"This is a Public University education center which conducting classes for GCE AL Students.",
+        img: require("../assets/images/institution1.png"),
     },
 ]
