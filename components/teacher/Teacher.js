@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native'
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { globalStyles } from '../../globalStyle'
 import TeacherCard from './TeacherCard'
 import { teacherData } from '../../data/teacherData'
@@ -16,14 +16,6 @@ const Teacher = ({navigation}) => {
       'Exo-Medium': require('../../assets/fonts/Exo-Medium.ttf'),
   });
 
-  if (!fontsLoaded) {
-      return null;
-  }
-
-  const onFilterPressed = ()=> {
-    setShowTeacherFilter((prev)=> !prev)
-  }
-
   const filterTeacherData = (area, subject) => {
     if(area === "All Area" && subject === "All Subject"){
         setTeacherInfo(teacherData)
@@ -39,6 +31,22 @@ const Teacher = ({navigation}) => {
         setTeacherInfo(newTeacherArea)
     }
   }
+
+  useEffect(()=>{
+    filterTeacherData("All Area","All Subject")
+  },[showTeacherFilter])
+
+  if (!fontsLoaded) {
+      return null;
+  }
+
+  const onFilterPressed = ()=> {
+    setShowTeacherFilter((prev)=> !prev)
+  }
+
+  
+
+
 
   return (
     <View>

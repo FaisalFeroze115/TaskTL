@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, ScrollView, FlatList, TouchableOpacity } from 'react-native'
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import InstitutionCard from './InstitutionCard'
 import { globalStyles } from '../../globalStyle'
 import { institutionData } from '../../data/institutionData'
@@ -16,13 +16,6 @@ const Institution = () => {
     'Exo-Medium': require('../../assets/fonts/Exo-Medium.ttf'),
   });
 
-  if (!fontsLoaded) {
-      return null;
-  }
-
-  const onFilterPressed = ()=> {
-    setShowInstitutionFilter((prev)=> !prev)
-  }
 
   const filterInstitutionData = (area) => {
     if(area === "All Area"){
@@ -32,6 +25,20 @@ const Institution = () => {
       setInstitutionInfo(newInstitution)
     }
   }
+
+  useEffect(()=>{
+    filterInstitutionData("All Area")
+  },[showInstitutionFilter])
+
+  if (!fontsLoaded) {
+      return null;
+  }
+
+  const onFilterPressed = ()=> {
+    setShowInstitutionFilter((prev)=> !prev)
+  }
+
+ 
 
   return (
     <View style={globalStyles.mainWrapperPadding}>
@@ -49,16 +56,6 @@ const Institution = () => {
       }
 
       <View style={{paddingVertical: 30}}>
-        {/* <FlatList
-
-            showsHorizontalScrollIndicator={false}
-            data={institutionInfo}
-            renderItem={ ({ item }) => (
-                <InstitutionCard name={item.name} rating={item.rating} views={item.views} area={item.area} description={item.description}/>
-                )}
-            keyExtractor={item => item.id}
-        /> */}
-
         {
           institutionInfo.map(item => (
             <InstitutionCard key={item.id} name={item.name} rating={item.rating} views={item.views} area={item.area} description={item.description}/>
