@@ -1,11 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import Header from './components/header/Header';
+import Teacher from './components/teacher/Teacher';
+import Institution from './components/institution/Institution';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Header />
+      <ScrollView>
+
+          <Teacher />
+          <Institution />
+
+      </ScrollView>
+      
     </View>
   );
 }
@@ -13,8 +21,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#F4F5F9',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    // paddingHorizontal: 30
   },
 });
