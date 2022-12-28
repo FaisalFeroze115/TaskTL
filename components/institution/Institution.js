@@ -49,15 +49,22 @@ const Institution = () => {
       }
 
       <View style={{paddingVertical: 30}}>
-        <FlatList
+        {/* <FlatList
 
             showsHorizontalScrollIndicator={false}
             data={institutionInfo}
             renderItem={ ({ item }) => (
-                <InstitutionCard name={item.name} rating={item.rating} area={item.area} description={item.description}/>
+                <InstitutionCard name={item.name} rating={item.rating} views={item.views} area={item.area} description={item.description}/>
                 )}
             keyExtractor={item => item.id}
-        />
+        /> */}
+        
+        {
+          institutionInfo.map(item => (
+            <InstitutionCard key={item.id} name={item.name} rating={item.rating} views={item.views} area={item.area} description={item.description}/>
+          ))
+        }
+
       </View>
 
       

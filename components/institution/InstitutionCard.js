@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
+import StarRating from '../starRating/StarRating'
 
-const InstitutionCard = ({name,rating,area,description}) => {
+const InstitutionCard = ({name,rating,views,area,description}) => {
   return (
     <View>
 
@@ -13,7 +14,7 @@ const InstitutionCard = ({name,rating,area,description}) => {
 
           <View style={{flex: 3,}}>
             <Text style={styles.institutionName}>{name}</Text>
-            <Text style={styles.institutionRating}>{rating}</Text>
+            <StarRating ratings={rating} views={views}/>
             <Text style={styles.institutionArea}>{area}</Text>
             <Text style={styles.institutionDescription}>{description}</Text>
           </View>
