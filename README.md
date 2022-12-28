@@ -23,7 +23,7 @@
 # Clone the repo
 git clone https://github.com/FaisalFeroze115/TruckLagbeTask.git
 # Navigate to clonned folder and Install dependencies
-cd react-native-starter && npm install
+cd TruckLagbeTask && npm install
 # Run project
 npm start
 ```
