@@ -61,16 +61,20 @@ const Teacher = ({navigation}) => {
         </View>
 
         <View style={styles.sliderWrapper}>
-            <FlatList
-                style={styles.flatListStyle}
-                showsHorizontalScrollIndicator={false}
-                horizontal={true}
-                data={teacherInfo}
-                renderItem={ ({ item }) => (
-                    <TeacherCard navigation={navigation} item={item}/>
-                  )}
-                keyExtractor={item => item.id}
-            />
+            {
+            teacherInfo.length > 0 ? 
+                <FlatList
+                    style={styles.flatListStyle}
+                    showsHorizontalScrollIndicator={false}
+                    horizontal={true}
+                    data={teacherInfo}
+                    renderItem={ ({ item }) => (
+                        <TeacherCard navigation={navigation} item={item}/>
+                    )}
+                    keyExtractor={item => item.id}
+                /> : <Text style={{padding: 30, fontSize: 25, color: '#EE4B2B'}}>No Data Available</Text>
+            }
+            
         </View>
     </View>
   )

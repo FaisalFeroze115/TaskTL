@@ -53,9 +53,10 @@ const Institution = ({navigation}) => {
 
       <View style={{paddingVertical: 30}}>
         {
-          institutionInfo.map(item => (
-            <InstitutionCard navigation={navigation} key={item.id} item={item} />
-          ))
+          institutionInfo.length > 0 ?
+            institutionInfo.map(item => (
+              <InstitutionCard navigation={navigation} key={item.id} item={item} />
+            )) : <Text style={{padding: 30, fontSize: 25, color: '#EE4B2B'}}>No Data Available</Text>
         }
       </View>
 
