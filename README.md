@@ -6,11 +6,14 @@
 - Teacher profile screen
 - Institution profile screen
 
-## What's inside
+## Functionality
 - Used React Native Navigation
 - Used React Native expo icons
-- Manage teacher and institution data with useState state management
-- Teacher filter combination of area and subject 
+- Manage teacher and institution data with useState and useEffect state management
+- Teacher filter with combination of area and subject 
+- Institution filter with area
+- Touchable teacher card and go to single teacher screen
+- Touchable institution card and go to single institution screen
 
 ## Getting Started
 
