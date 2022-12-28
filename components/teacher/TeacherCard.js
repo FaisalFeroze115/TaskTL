@@ -1,9 +1,17 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { globalStyles } from '../../globalStyle'
 
-const TeacherCard = ({img, name, subject }) => {
+const TeacherCard = ({item, navigation }) => {
+  const {img, name, subject, area} = item
+
+  const viewTeacher = () => {
+    navigation.navigate('TeacherLanding', {teacher: item})
+  }
+
   return (
+    <TouchableOpacity onPress={viewTeacher}>
+
     <View style={[styles.cardWrapper]}>
       <View>
             <Image style={styles.cardImage} source={{uri:img}}/>
@@ -15,6 +23,9 @@ const TeacherCard = ({img, name, subject }) => {
             <Text style={styles.cardSubject}>{subject}</Text>
       </View>
     </View>
+
+    </TouchableOpacity>
+    
   )
 }
 

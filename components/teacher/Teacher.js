@@ -7,7 +7,7 @@ import { Fontisto } from '@expo/vector-icons';
 import { useFonts } from 'expo-font';
 import TeacherFilter from './TeacherFilter';
 
-const Teacher = () => {
+const Teacher = ({navigation}) => {
   
   const [teacherInfo, setTeacherInfo] = useState(teacherData)
   const [showTeacherFilter, setShowTeacherFilter] = useState(false)
@@ -65,7 +65,7 @@ const Teacher = () => {
                 horizontal={true}
                 data={teacherInfo}
                 renderItem={ ({ item }) => (
-                    <TeacherCard img={item.img} name={item.name} subject={item.subject}/>
+                    <TeacherCard navigation={navigation} item={item}/>
                   )}
                 keyExtractor={item => item.id}
             />
