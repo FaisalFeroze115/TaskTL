@@ -2,17 +2,29 @@ import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import Header from './components/header/Header';
 import Teacher from './components/teacher/Teacher';
 import Institution from './components/institution/Institution';
+import Welcome from './screens/Welcome';
+import Explore from './screens/Explore';
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Header />
-      <ScrollView>
 
-          <Teacher />
-          <Institution />
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName='Welcome'>
+          <Stack.Screen name="Welcome" component={Welcome} />
 
-      </ScrollView>
+          <Stack.Screen name="Explore" component={Explore} />
+
+        </Stack.Navigator>
+      </NavigationContainer>
+
+      {/* <Explore /> */}
       
     </View>
   );
